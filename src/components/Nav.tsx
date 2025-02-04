@@ -5,7 +5,7 @@ const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 14px 160px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   height: 28px;
 
@@ -20,13 +20,13 @@ const NavBar = styled.div`
 
 const MenuButton = styled.button`
   display: none;
-  
+
   background: none;
   border: none;
   cursor: pointer;
   padding: 5px;
   margin-right: 10px;
-  
+
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ const MenuButton = styled.button`
     display: block;
     height: 2px;
     width: 24px;
-    background-color: #3E4C59;
+    background-color: #3e4c59;
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -76,7 +76,7 @@ const Username = styled.div`
   display: flex;
   align-items: center;
   text-align: right;
-  color: #3E4C59;
+  color: #3e4c59;
 
   @media (max-width: 768px) {
     display: none;
@@ -87,7 +87,12 @@ function Nav({ toggleSidebar }: { toggleSidebar: () => void }) {
   return (
     <NavBar>
       <LogoContainer>
-        <MenuButton onClick={toggleSidebar}>
+        <MenuButton
+          onClick={(e) => {
+            toggleSidebar();
+            e.stopPropagation();
+          }}
+        >
           <span />
           <span />
           <span />
