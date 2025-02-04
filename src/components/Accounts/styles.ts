@@ -20,7 +20,6 @@ export const AddButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
-  /* identical to box height, or 100% */
   text-align: right;
   border: none;
 
@@ -38,15 +37,15 @@ export const AccountCardContainer = styled.div`
   grid-template-columns: repeat(
     auto-fit,
     minmax(250px, 1fr)
-  ); // Ensures responsiveness
-  gap: 16px; // Adds spacing between items
+  ); 
+  gap: 16px; 
 `;
 
 export const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; // Makes sure it's centered vertically in the viewport
+  height: 100%; 
   width: 100%;
   margin-top: -100px;
 
@@ -54,7 +53,7 @@ export const CenteredContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Add spacing between elements */
+    gap: 10px; 
   }
 `;
 
@@ -62,30 +61,30 @@ export const ModalCenteredContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; // Makes sure it's centered vertically in the viewport
+  height: 100%; 
   width: 100%;
 
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Add spacing between elements */
+    gap: 10px; 
   }
 `;
 
 export const Button = styled.button`
   padding: 18px 54px;
 
-  /* black-100 */
+
   background: #000000;
   border-radius: 40px;
-  /* Try again */
+
 
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
-  /* identical to box height, or 100% */
+
   text-align: center;
   color: white;
   cursor: pointer;
@@ -99,9 +98,9 @@ export const StyledAccountCard = styled.div`
   background-repeat: no-repeat;
   box-shadow: 0px 10px 20px rgba(138, 138, 138, 0.5);
   border-radius: 10px;
-  color: white; /* Ensures text is visible */
+  color: white; 
 
-  /* Group 2 */
+ 
   button {
     position: absolute;
     bottom: 16px;
@@ -118,7 +117,7 @@ export const StyledAccountCard = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
-    color: #9aa5b1; /* grey-50 */
+    color: #9aa5b1;
   }
 
   .balance {
@@ -126,13 +125,13 @@ export const StyledAccountCard = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 16px;
-    color: #ffffff; /* white */
-    margin-bottom: 66px; /* Add margin below balance */
+    color: #ffffff;
+    margin-bottom: 66px; 
   }
 
   .imgUrl {
     display: flex;
-    margin-bottom: 18px; /* Add margin below the imgURL div */
+    margin-bottom: 18px;
   }
 
   .image {
@@ -167,9 +166,6 @@ export const StyledModalContent = styled.div`
     font-weight: 400;
     font-size: 18px;
     line-height: 26px;
-    /* or 144% */
-
-    /* Grey-60 */
     color: #3e4c59;
   }
 
@@ -184,12 +180,12 @@ export const StyledModalContent = styled.div`
     line-height: 16px;
     color: #000000;
     margin-top: 20px;
-    appearance: none; /* Remove default icon */
-    -webkit-appearance: none; /* For Safari */
-    background-image: url("/assets/images/select.svg"); /* Custom icon */
+    appearance: none;
+    -webkit-appearance: none; 
+    background-image: url("/assets/images/select.svg"); 
     background-repeat: no-repeat;
-    background-position: right 16px center; /* Adjust position of the icon */
-    background-size: 12px; /* Size of the custom icon */
+    background-position: right 16px center; 
+    background-size: 12px; 
   }
 
   .button-wrapper {

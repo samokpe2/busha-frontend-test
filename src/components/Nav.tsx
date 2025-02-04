@@ -19,17 +19,14 @@ const NavBar = styled.div`
 `;
 
 const MenuButton = styled.button`
-  /* Hide button by default on large screens */
   display: none;
   
-  /* Reset button styles */
   background: none;
   border: none;
   cursor: pointer;
   padding: 5px;
   margin-right: 10px;
   
-  /* Show button on mobile screens */
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -38,7 +35,6 @@ const MenuButton = styled.button`
     width: 24px;
   }
 
-  /* The lines of the hamburger icon */
   span {
     display: block;
     height: 2px;
