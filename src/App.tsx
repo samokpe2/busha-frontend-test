@@ -35,33 +35,46 @@ const HideOnSmallScreens = styled.div`
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
-  const isMounted = useRef(true); // Track if the component is mounted
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
 
-  // Cleanup function in case the component is unmounted
   useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        setSidebarOpen(false);
+      }
+    }
+
+    if (isSidebarOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
     return () => {
-      isMounted.current = false; // Set it to false when the component is unmounted
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [isSidebarOpen]);
 
   const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+    setSidebarOpen((prev) => !prev);
   };
 
   const showToast = (message: string, type: "success" | "error") => {
-    if (isMounted.current) {
-      setToast({ message, type }); // Only set the toast if the component is still mounted
-    }
+    setToast({ message, type });
   };
 
-  return (
+  return ( 
     <AppContainer>
       <Nav toggleSidebar={toggleSidebar} />
-      {/* Conditionally render ResponsiveSidebar */}
-      {isSidebarOpen && <ResponsiveSidebar isOpen={isSidebarOpen} />}
+      {isSidebarOpen && (
+        <div ref={sidebarRef}>
+          <ResponsiveSidebar isOpen={isSidebarOpen} />
+        </div>
+      )}
       <MainSection>
-        <HideOnSmallScreens><Sidebar /></HideOnSmallScreens>
-        {/* Main content goes here */}
+        <HideOnSmallScreens>
+          <Sidebar />
+        </HideOnSmallScreens>
         <Accounts showToast={showToast} />
       </MainSection>
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
